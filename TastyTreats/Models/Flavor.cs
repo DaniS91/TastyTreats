@@ -15,6 +15,6 @@ namespace TastyTreats.Models
 
      public List<TreatFlavor> JoinEntities { get; }
 
-     public ApplicationException User { get; set; }
+     public ApplicationUser User { get; set; }
   }
 }
