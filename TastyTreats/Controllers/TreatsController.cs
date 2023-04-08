@@ -54,5 +54,13 @@ namespace TastyTreats.Controllers
         return RedirectToAction("Index");
       }
     }
+    public ActionResult Details(int id)
+    {
+      Treat thisTreat= _db.Treats
+                          .Include(treat => treat.JoinEntities)
+                          .FirstOrDefault(treat => treat.TreatId == id);
+      return View(thisTreat);
+    }
+
   }
 }
