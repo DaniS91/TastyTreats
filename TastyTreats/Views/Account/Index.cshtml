@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+<h2>Tasty Treats Account</h2>
+<hr />
+@if (User.Identity.IsAuthenticated)
+{
+  <p>Hello @User.Identity.Name!</p>
+  @using (Html.BeginForm("LogOff", "Account"))
+  {
+    <input type="submit" class="btn btn-secondary" value="Log out" />
+  }
+}
+else
+{
+  <p>@Html.ActionLink("Register", "Register", null, null, new { @class = "btn btn-primary"})</p>
+  <p>@Html.ActionLink("Log in", "Login", null, null, new { @class = "btn btn-secondary"})</p>
+}
+
+<span>@Html.ActionLink("Tasty Treats Home", "Index", "Home", null, new { @class = "btn btn-info"})</span>
