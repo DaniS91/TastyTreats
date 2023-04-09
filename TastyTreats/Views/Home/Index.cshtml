@@ -12,6 +12,7 @@
 @if (Model["flavors"].Length == 0)
 {
   <p>No flavors have been added yet!</p>
+  <p>@Html.ActionLink("Add New Flavor", "Create", "Flavors", null, new { @class = "btn btn-info"})</p>
 } 
 <ul>
   @foreach (Flavor flav in Model["flavors"])
@@ -24,6 +25,7 @@
 @if (Model["treats"].Length == 0)
 {
   <p>No treats have been added yet!</p>
+  <p>@Html.ActionLink("Add New Treat", "Create", "Treats", null, new { @class = "btn btn-primary"})</p>
 } 
 <ul>
   @foreach (Treat treat in Model["treats"])
@@ -34,5 +36,6 @@
 
 <hr>
 
-<p>@Html.ActionLink("Treat List", "Index", "Treats", null, new { @class = "btn btn-secondary"})</p> 
-<p>@Html.ActionLink("Flavor List", "Index", "Flavors", null, new { @class = "btn btn-secondary"})</p>
+<span>@Html.ActionLink("Treat List", "Index", "Treats", null, new { @class = "btn btn-secondary"})</span> 
+<span>@Html.ActionLink("Flavor List", "Index", "Flavors", null, new { @class = "btn btn-secondary"})</span>
+<span>@Html.ActionLink("Manage Account", "Index", "Account", null, new { @class = "btn btn-secondary"})</span
