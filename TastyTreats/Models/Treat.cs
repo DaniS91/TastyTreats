@@ -11,10 +11,10 @@ namespace TastyTreats.Models
     [Required(ErrorMessage = "Your treat must have a name")]
     public string Name { get; set; }
 
-     public string Description{ get; set; }
+    public string Description{ get; set; }
 
-     public List<TreatFlavor> JoinEntities { get; }
+    public List<TreatFlavor> JoinEntities { get; }
 
-     public ApplicationUser User { get; set; }
+    public ApplicationUser User { get; set; }
   }
 }
