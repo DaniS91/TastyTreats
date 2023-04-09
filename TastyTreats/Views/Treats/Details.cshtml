@@ -1,0 +1,37 @@
+@{
+  Layout = "_Layout";
+}
+
+@using TastyTreats.Models
+@model TastyTreats.Models.Treat
+
+<h2>Treat Details</h2>
+<hr />
+<h3>@Html.DisplayFor(model => model.Name)</h3>
+<h4>@Html.DisplayFor(model => model.Description)</h4>
+
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This treat does not have any flavors yet!</p>
+}
+else
+{
+  <h4>This treat has the following flavors:</h4>
+  <ul>
+    @foreach(TreatFlavor join in Model.JoinEntities)
+    {
+      <li>@join.Flavor.Name</li>
+      @using (Html.BeginForm("DeleteJoin", "Flavors"))
+      {
+        @Html.Hidden("joinId", @join.TreatFlavorId)
+        <input type="submit" value="Delete" class="btn btn-danger"/>
+      }
+    }
+  </ul>
+}
+
+<span>@Html.ActionLink("Treat List", "Index", null, null, new { @class = "btn btn-secondary"})</span>
+<span>@Html.ActionLink("Edit Treat", "Edit", null, new { id = Model.TreatId }, new { @class = "btn btn-warning"})</span>
+<span>@Html.ActionLink("Add a Treat", "AddFlavor", null, new { id = Model.TreatId }, new { @class = "btn btn-primary"})</span>
+<span>@Html.ActionLink("Delete Treat", "Delete", null, new { id = Model.TreatId }, new { @class = "btn btn-danger"})</span>
