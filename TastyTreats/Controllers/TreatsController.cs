@@ -40,7 +40,7 @@ namespace TastyTreats.Controllers
     [HttpPost]
     public async Task<ActionResult> Create(Treat treat)
     {
-      if(ModelState.IsValid)
+      if(!ModelState.IsValid)
       {
         return View(treat);
       }
