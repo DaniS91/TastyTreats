@@ -11,6 +11,7 @@ using System.Security.Claims;
 
 namespace TastyTreats.Controllers
 {
+  [Authorize]
   public class FlavorsController : Controller
   {
     private readonly TastyTreatsContext _db;
@@ -92,6 +93,12 @@ namespace TastyTreats.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult AddTreat(int id)
+    {
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(post => post.FlavorId == id);
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
+      return View(thisFlavor);
+    }
     [HttpPost]
     public ActionResult AddTreat(Treat treat, int flavorId)
     {
