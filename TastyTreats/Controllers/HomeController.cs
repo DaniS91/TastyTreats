@@ -20,21 +20,13 @@ namespace TastyTreats.Controllers
     }
 
     [HttpGet("/")]
-    public async Task<ActionResult> Index()
+    public ActionResult Index()
     {
       Flavor[] flavs = _db.Flavors.ToArray();
+      Treat[] treats = _db.Treats.ToArray();
       Dictionary<string,object[]> model = new Dictionary<string, object[]>();
       model.Add("flavors", flavs);
-     
-      string userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
-      if (currentUser != null)
-        {
-          Treat[] treats = _db.Treats
-                            .Where(entry => entry.User.Id == currentUser.Id)
-                            .ToArray();
-          model.Add("treats", treats);
-        }
+      model.Add("treats", treats);
       return View(model);
     }
   }
