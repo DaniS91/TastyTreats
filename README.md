@@ -15,8 +15,7 @@
 #### Setting up directories
 * clone this repo to your desktop
 * navigate to project directory in your terminal
-* you may want to include a .gitignore file in your root directory
-* in your .gitignore file you can include the appsettings.json file that you will need to create in the next step
+* follow the next steps for creating an appsettings file and setting up a database
 
 #### Creating an appsettings file
 * navigate to "TastyTreats" directory (production directory)
