@@ -101,17 +101,17 @@ namespace TastyTreats.Controllers
       return View(thisFlavor);
     }
     [HttpPost]
-    public ActionResult AddTreat(Treat treat, int flavorId)
+    public ActionResult AddTreat(Flavor flavor, int treatId)
     {
       #nullable enable
-      TreatFlavor? joinEntity = _db.TreatFlavors.FirstOrDefault(join => (join.FlavorId == flavorId && join.TreatId == treat.TreatId));
+      TreatFlavor? joinEntity = _db.TreatFlavors.FirstOrDefault(join => (join.FlavorId == treatId && join.TreatId == flavor.FlavorId));
       #nullable disable
-      if (joinEntity == null && flavorId != 0)
+      if (joinEntity == null && treatId != 0)
       {
-        _db.TreatFlavors.Add(new TreatFlavor() { FlavorId = flavorId, TreatId = treat.TreatId });
+        _db.TreatFlavors.Add(new TreatFlavor() { TreatId = treatId, FlavorId = flavor.FlavorId });
         _db.SaveChanges();
       }
-      return RedirectToAction("Details", new { id = treat.TreatId });
+      return RedirectToAction("Details", new { id = flavor.FlavorId });
     }
 
      [HttpPost]
