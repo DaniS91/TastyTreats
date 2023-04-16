@@ -33,7 +33,17 @@
 
 #### Database setup
 * this project uses ["Code-First Development with Migrations"][Code-First Dev]
-* follow along with the steps in the lesson linked above to create migrations for updating and initializing your database
+* navigate to the TastyTreats directory (the production directory) and use the command:
+
+```
+$ dotnet ef database update
+```
+
+* use the following command to then build the database and get the app running:
+
+```
+$ dotnet run
+```
 
 ## Description
 
