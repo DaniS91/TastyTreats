@@ -30,8 +30,6 @@ else
     }
   </ul>
 }
-
-<span>@Html.ActionLink("Flavor List", "Index", null, null, new { @class = "btn btn-secondary"})</span>
-<span>@Html.ActionLink("Edit Flavor", "Edit", null, new { id = Model.FlavorId }, new { @class = "btn btn-warning"})</span>
-<span>@Html.ActionLink("Add a Treat to Flavor", "AddTreat", null, new { id = Model.FlavorId }, new { @class = "btn btn-primary"})</span>
+<span>@Html.ActionLink("Edit Flavor", "Edit", null, new { id = Model.FlavorId }, new { @class = "btn btn-secondary"})</span>
+<span>@Html.ActionLink("Add a Treat to Flavor", "AddTreat", null, new { id = Model.FlavorId }, new { @class = "btn btn-info"})</span>
 <span>@Html.ActionLink("Delete Flavor", "Delete", null, new { id = Model.FlavorId }, new { @class = "btn btn-danger"})</span>
